@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { DefaultButton } from '../components/DefaultButton';
-import DefaultInput from '../components/DefaultInput';
+import { DefaultButton } from '../../components/DefaultButton';
+import DefaultInput from '../../components/DefaultInput';
+import styles from './styles';
 
 
 
@@ -20,7 +21,7 @@ export default function NovaPesquisa(props) {
       </View>
       <TouchableOpacity  >
         <View >
-            <Image source={require('../assets/img/lixeria.png')} style={styles.trashIcon} />
+            <Image source={require('../../assets/img/lixeira.png')} style={styles.trashIcon} />
             <Text style={styles.apagarText}>Apagar</Text>
           </View>
       </TouchableOpacity>
@@ -31,33 +32,3 @@ export default function NovaPesquisa(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  forms: {
-    paddingTop: 30
-  },
-  busca: {
-    paddingLeft: 100,
-  },
-  container: {
-    backgroundColor: '#372775',
-    flex: 1,
-    alignItems: 'center', 
-    justifyContent: 'flex-start',
-    gap: 20, 
-  },
-  botao: {
-    flex: 1, 
-    justifyContent: 'flex-end', 
-    marginBottom: 20, 
-  },
-  content1: {
-    color:'black'
-  },
-  apagarText: {
-    fontSize: 16, 
-    color: 'white', 
-  },
-
-
-});

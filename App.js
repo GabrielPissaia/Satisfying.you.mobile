@@ -1,11 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './src/screens/Login';
-import ModificarPesquisa from './src/screens/ModificarPesquisa';
-import NovaConta from './src/screens/NovaConta';
-import NovaPesquisa from './src/screens/NovaPesquisa';
-import PaginaPrincipal from './src/screens/PaginaPrincipal';
-import RecuperarSenha from './src/screens/RecuperarSenha';
+import Login from './src/pages/login/index';
+import ModificarPesquisa from './src/pages/modificarpesquisa/index';
+import NovaConta from './src/pages/novaconta/index';
+import NovaPesquisa from './src/pages/novapesquisa/index';
+import PaginaPrincipal from './src/pages/home/index';
+import RecuperarSenha from './src/pages/recuperarsenha/index';
 
 const Stack = createStackNavigator()
 

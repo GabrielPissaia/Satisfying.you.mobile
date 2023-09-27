@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { DefaultButton } from '../components/DefaultButton';
-import DefaultInput from '../components/DefaultInput';
-import { Logo } from '../components/Logo';
+import { DefaultButton } from '../../components/DefaultButton';
+import DefaultInput from '../../components/DefaultInput';
+import { Logo } from '../../components/Logo';
+import styles from './styles';
 
 export default function Login(props) {
   const [email, setEmail] = useState('')
@@ -47,28 +48,3 @@ export default function Login(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-
-  container: {
-    backgroundColor: '#372775',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20
-  },
-
-  input: {
-    borderWidth: 1,
-    borderRadius: 20,
-    padding: '2%',
-    width: 300,
-    color: 'white',
-    borderColor: 'white'
-  },
-
-  bottomContainer:{
-    gap: 10,
-    marginTop: 50
-  }
-});
