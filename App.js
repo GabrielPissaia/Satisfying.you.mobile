@@ -1,0 +1,27 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './src/pages/login/index';
+import ModificarPesquisa from './src/pages/modificarpesquisa/index';
+import NovaConta from './src/pages/novaconta/index';
+import NovaPesquisa from './src/pages/novapesquisa/index';
+import PaginaPrincipal from './src/pages/home/index';
+import RecuperarSenha from './src/pages/recuperarsenha/index';
+
+const Stack = createStackNavigator()
+
+const App =  () => {
+    return(
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName='Login'>
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="NovaConta" component={NovaConta} />
+                <Stack.Screen name="RecuperarSenha" component={RecuperarSenha} />
+                <Stack.Screen name="PaginaPrincipal" component={PaginaPrincipal} />
+                <Stack.Screen name="NovaPesquisa" component={NovaPesquisa} />
+                <Stack.Screen name="ModificarPesquisa" component={ModificarPesquisa} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
+
+export default App;

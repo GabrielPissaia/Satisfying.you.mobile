@@ -1,0 +1,36 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+    busca: {
+      paddingLeft: 100,
+    },
+    container: {
+      backgroundColor: '#372775',
+      flex: 1,
+      alignItems: 'center', 
+      justifyContent: 'flex-start',
+      gap: 20, 
+    },
+    scrollView: {
+      height: 200, 
+    },
+    squaresContainer: {
+      flexDirection: 'row',
+      paddingTop: 140
+    },
+    div: {
+      backgroundColor: 'white',
+      width: 200,
+      height: 200,
+      marginLeft: 10,
+    },
+    botao: {
+      marginBottom: 20
+    },
+    content1: {
+      color:'black'
+    }
+  
+  });
+
+  export default styles;
