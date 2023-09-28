@@ -1,10 +1,8 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { DefaultButton } from '../../components/DefaultButton';
 import DefaultInput from '../../components/DefaultInput';
 import styles from './styles';
-
-
 
 export default function NovaPesquisa(props) {
 

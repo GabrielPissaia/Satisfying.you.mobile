@@ -5,8 +5,6 @@ import DefaultInput from '../../components/DefaultInput';
 import { DefaultSectionT } from 'react-native';
 import styles from './styles';
 
-
-
 export default function NovaPesquisa(props) {
 
   const goToPaginaPrincipal = () => {

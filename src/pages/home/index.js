@@ -5,7 +5,6 @@ import DefaultInput from '../../components/DefaultInput';
 import { DefaultSquareDiv } from '../../components/DefaultSquareDiv';
 import styles from './styles';
 
-
 export default function Main(props) {
 
   const goToNovaPesquisa = () => {

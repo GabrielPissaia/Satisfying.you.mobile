@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { DefaultButton } from '../../components/DefaultButton';
 import DefaultInput from '../../components/DefaultInput';
 import styles from './styles';
