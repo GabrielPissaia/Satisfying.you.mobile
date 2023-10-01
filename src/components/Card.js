@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
-export const DefaultSquareDiv = ({ title, color, width, style, disabled, imageSource, text, data }) => {
+export const card = ({ title, color, width, style, onPress, disabled, imageSource, text, data }) => {
   const divStyle = {
     backgroundColor: color || 'green',
   };
@@ -38,6 +38,7 @@ export const DefaultSquareDiv = ({ title, color, width, style, disabled, imageSo
     <TouchableOpacity
       style={[styles.div, divStyle, style]}
       disabled={disabled}
+      onPress={onPress}
     >
       <Image source={imageSource} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
@@ -46,3 +47,5 @@ export const DefaultSquareDiv = ({ title, color, width, style, disabled, imageSo
     </TouchableOpacity>
   );
 };
+
+export default card
