@@ -22,6 +22,7 @@ const DefaultInput = ({ title, placeholder, size, secure, error, onChangeText, b
         error:{
             color: '#fd7979',
             fontFamily: 'AveriaLibre-Regular',
+            marginBottom: 15,
         },
 
     });

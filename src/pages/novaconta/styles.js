@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
     bottomContainer:{
       gap: 10,
       marginTop: 50
+    },
+
+    form:{
+      marginTop: 100
     }
   });
 

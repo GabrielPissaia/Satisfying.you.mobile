@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     forms: {
+      position: 'relative',
+      top: 180,
       paddingTop: 30,
+      
     },
     busca: {
       paddingLeft: 100,
@@ -15,9 +18,8 @@ const styles = StyleSheet.create({
       gap: 20, 
     },
     botao: {
-      flex: 1, 
-      justifyContent: 'flex-end', 
-      marginBottom: 20, 
+      position: 'absolute',
+      top: '90%'
     },
     content1: {
       color:'black'
@@ -28,7 +30,6 @@ const styles = StyleSheet.create({
       marginTop: 1,
       marginBottom: 10,
     },
-  
   });
 
 export default styles;

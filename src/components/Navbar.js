@@ -20,7 +20,8 @@ export const Navbar = ({ title, top }) => {
             padding: 24,
             top: 0,
             flexDirection: 'row',
-            alignItems: 'center'
+            alignItems: 'center',
+            marginBottom: 50
           },
       
           texto2: {
