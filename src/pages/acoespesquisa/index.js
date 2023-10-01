@@ -1,22 +1,12 @@
-import { View, TouchableOpacity, Text, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { useCallback } from 'react'
+import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Navbar } from '../../components/Navbar';
 import styles from './styles';
 
 export default function AcoesPesquisa() {
-  const { goBack, navigate } = useNavigation();
-
-  const navigateBack = useCallback(() => {
-    goBack();
-  }, [goBack]);
-
   return (
     <View style={styles.container}>
-        <View style={styles.nav} >
-            <TouchableOpacity onPress={navigateBack}><Icon name="arrow-back" size={48} color="#573FBA" /></TouchableOpacity>
-            <Text style={styles.texto2}>Carnaval</Text>
-        </View>
+        <Navbar title={'Carnaval'} top={-110}></Navbar>
         <TouchableOpacity style={styles.button}>
             <Icon name="edit-document" size={48} color="#F9F9F9" /> 
             <Text style={styles.texto}>Modificar</Text>

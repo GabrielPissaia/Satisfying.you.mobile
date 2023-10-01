@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     },
 
     button: {
-      top: -25,
+      top: 40,
       backgroundColor: '#2B1D62',
       justifyContent: 'center',
       alignItems: 'center',
@@ -26,22 +26,6 @@ const styles = StyleSheet.create({
     texto: {
       marginTop: 10,
       color: '#fff'
-    },
-
-    nav: {
-      backgroundColor: '#2B1D62',
-      width: '100%',
-      height: 90,
-      padding: 24,
-      top: -110,
-      flexDirection: 'row',
-      alignItems: 'center'
-    },
-
-    texto2: {
-      marginLeft: 20,
-      color: '#fff',
-      fontSize: 32
     },
   });
 

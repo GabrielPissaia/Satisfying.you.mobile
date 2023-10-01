@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { DefaultButton } from '../../components/DefaultButton';
 import DefaultInput from '../../components/DefaultInput';
-import { DefaultSectionT } from 'react-native';
+import { Navbar } from '../../components/Navbar';
 import styles from './styles';
 
 export default function NovaPesquisa(props) {
@@ -13,6 +13,7 @@ export default function NovaPesquisa(props) {
 
   return (
     <View style={styles.container}>
+      <Navbar title={'Nova pesquisa'} ></Navbar>
       <View style={styles.forms}>
       <DefaultInput secure={true} title={'Nome'} size={350} borderRadius={8} error={'Preencha no nome da pesquisa'}/>
       <DefaultInput secure={true} title={'Data'} size={350} borderRadius={8} error={'Preencha a data'}/>

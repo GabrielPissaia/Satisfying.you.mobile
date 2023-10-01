@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { DefaultButton } from '../../components/DefaultButton';
 import DefaultInput from '../../components/DefaultInput';
+import { Navbar } from '../../components/Navbar';
 import styles from './styles';
 
 export default function NovaConta() {
@@ -30,6 +31,7 @@ export default function NovaConta() {
 
   return (
     <View style={styles.container}>
+      <Navbar title={'Nova conta'} ></Navbar>
       <DefaultInput onChangeText={handleEmailChange} placeholder={'Digite seu email'} title={'E-mail'} size={300} error={emailError} borderRadius={8}/>
       <DefaultInput onChangeText={handlePasswordChange} secure={true} placeholder={'Digite sua senha'} title={'Senha'} size={300} borderRadius={8}/>
       <DefaultInput onChangeText={handleRepeatPasswordChange} secure={true} placeholder={'Repita sua senha'} title={'Repetir senha'} size={300} error={passwordError} borderRadius={8}/>

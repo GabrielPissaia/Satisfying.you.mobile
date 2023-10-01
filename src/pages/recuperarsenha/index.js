@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { DefaultButton } from '../../components/DefaultButton';
 import DefaultInput from '../../components/DefaultInput';
 import styles from './styles';
+import { Navbar } from '../../components/Navbar';
 
 export default function RecuperarSenha() {
   const [email, setEmail] = useState('')
@@ -17,6 +18,7 @@ export default function RecuperarSenha() {
 
   return (
     <View style={styles.container}>
+      <Navbar title={'Recuperar senha'} ></Navbar>
       <DefaultInput onChangeText={handleEmailChange} placeholder={'Digite seu email'} title={'E-mail'} size={300} error={emailError} borderRadius={8}/>
   
       <DefaultButton title={'Recuperar'} color={'#37BD6D'} width={300} disabled={Boolean(emailError)}/>

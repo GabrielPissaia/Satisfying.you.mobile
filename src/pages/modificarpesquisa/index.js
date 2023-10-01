@@ -3,6 +3,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { DefaultButton } from '../../components/DefaultButton';
 import DefaultInput from '../../components/DefaultInput';
 import styles from './styles';
+import { Navbar } from '../../components/Navbar';
 
 export default function NovaPesquisa(props) {
 
@@ -12,6 +13,7 @@ export default function NovaPesquisa(props) {
 
   return (
     <View style={styles.container}>
+      <Navbar title={'Modificar pesquisa'} ></Navbar>
       <View style={styles.forms}>
       <DefaultInput secure={true} title={'Nome'} size={350} borderRadius={8}/>
       <DefaultInput secure={true} title={'Data'} size={350} borderRadius={8}></DefaultInput>
