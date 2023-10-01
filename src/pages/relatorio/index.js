@@ -28,7 +28,7 @@ export default function Relatorio() {
 
             <View style={styles.aninhado}>
                 <View style={styles.terrible}></View>
-                <Text style={styles.text}>PÃ©ssimo</Text>
+                <Text style={styles.text}>Pessimo</Text>
             </View>
         </View>
     )

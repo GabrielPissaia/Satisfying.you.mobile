@@ -11,6 +11,9 @@ export default function AcoesPesquisa(props) {
   const goToColeta = () => {
     props.navigation.navigate('Coleta')
   }
+  const goToRelatorio = () => {
+    props.navigation.navigate('Relatorio')
+  }
 
   return (
     <View style={styles.container}>
@@ -23,7 +26,7 @@ export default function AcoesPesquisa(props) {
             <Icon name="devices" size={48} color="#F9F9F9" /> 
             <Text style={styles.texto}>Coletar dados</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={goToRelatorio}>
             <Icon name="donut-large" size={48} color="#F9F9F9" /> 
             <Text style={styles.texto}>Relatório</Text>
         </TouchableOpacity>
