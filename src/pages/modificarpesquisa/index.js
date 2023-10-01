@@ -5,10 +5,13 @@ import DefaultInput from '../../components/DefaultInput';
 import styles from './styles';
 import { Navbar } from '../../components/Navbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Modal from '../../components/ModalApagar';
+import { useState } from 'react';
 
 export default function NovaPesquisa(props) {
+  const [openModal, setOpenModal] = useState(false)
   const goToPaginaPrincipal = () => {
-    props.navigation.navigate('Pagina Principal')
+    props.navigation.navigate('PaginaPrincipal')
   }
 
   return (
@@ -25,16 +28,18 @@ export default function NovaPesquisa(props) {
         
       </View>
       <View style={styles.botao}>
-        <View style={styles.botao2}>
-            <DefaultButton title={'SALVAR'} color={'#37BD6D'} width={285} height={45} onPress={goToPaginaPrincipal}/>
-            <TouchableOpacity style={styles.botao3} >
-            <View >
-              <Icon name="delete" size={50} color="#FFFFFF" /> 
-                <Text style={styles.apagarText}>Apagar</Text>
-              </View>
-          </TouchableOpacity>
+          <View style={styles.botao2}>
+              <DefaultButton title={'SALVAR'} color={'#37BD6D'} width={285} height={45} onPress={goToPaginaPrincipal}/>
+              <TouchableOpacity style={styles.botao3} onPress={setOpenModal} >
+              <View >
+                <Icon name="delete" size={50} color="#FFFFFF" /> 
+                  <Text style={styles.apagarText}>Apagar</Text>
+                </View>
+            </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}/>
     </View>
+    
   );
 }
