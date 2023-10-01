@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 
-export const DefaultButton = ({ title, color, onPress, width, style, disabled}) => {
+export const DefaultButton = ({ title, color, onPress, width, height, style, disabled}) => {
     const buttonStyle = {
         backgroundColor: color || 'green'
     };
@@ -11,7 +11,8 @@ export const DefaultButton = ({ title, color, onPress, width, style, disabled}) 
             padding: 10,
             borderRadius: 1,
             alignItems: 'center',
-            width: width
+            width: width,
+            height: height,
         },
         buttonText: {
             color: 'white',

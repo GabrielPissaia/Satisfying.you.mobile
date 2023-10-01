@@ -1,18 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    busca: {
-      paddingLeft: 100,
-    },
     container: {
       backgroundColor: '#372775',
       flex: 1,
       alignItems: 'center', 
       justifyContent: 'flex-start',
       gap: 20, 
-    },
-    scrollView: {
-      height: 200, 
     },
     squaresContainer: {
       flexDirection: 'row',

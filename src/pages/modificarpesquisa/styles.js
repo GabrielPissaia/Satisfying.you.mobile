@@ -9,15 +9,22 @@ const styles = StyleSheet.create({
     },
     container: {
       backgroundColor: '#372775',
-      flex: 1,
       alignItems: 'center', 
       justifyContent: 'flex-start',
-      gap: 20, 
+      gap: 375, 
     },
     botao: {
+      top: '85%',
+      position: 'absolute',
+    },
+    botao2: {
       flex: 1, 
-      justifyContent: 'flex-end', 
-      marginBottom: 20, 
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    botao3: {
+      marginLeft: 15,
     },
     content1: {
       color:'black'
