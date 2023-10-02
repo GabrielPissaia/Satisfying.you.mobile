@@ -10,6 +10,7 @@ import Coleta from './src/pages/coleta/index';
 import PaginaPrincipal from './src/pages/home/index';
 import RecuperarSenha from './src/pages/recuperarsenha/index';
 import Relatorio from './src/pages/relatorio';
+import Drawer from './src/pages/drawer';
 
 const Stack = createStackNavigator()
 
@@ -29,6 +30,7 @@ const App =  () => {
                 <Stack.Screen name="AcoesPesquisa" component={AcoesPesquisa} />
                 <Stack.Screen name="Coleta" component={Coleta} />
                 <Stack.Screen name="Relatorio" component={Relatorio} />
+                <Stack.Screen name="Drawer" component={Drawer} options={{ headerShown: false}} />
             </Stack.Navigator>
         </NavigationContainer>
     )
