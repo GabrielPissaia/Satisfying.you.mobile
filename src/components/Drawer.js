@@ -7,7 +7,7 @@ const Drawer = (props) => {
     <DrawerContentScrollView {...props}>
       <DrawerItem    
          labelStyle={{color: 'white' }}
-         label="usuario@dominio.com"/>
+         label="teste@teste.com"/>
       <Divider />
       <DrawerItemList
        {...props} />

@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Main(props) {
+export default function PaginaPrincipal(props) {
   const goToNovaPesquisa = () => {
     props.navigation.navigate('NovaPesquisa')
   }
@@ -19,7 +19,7 @@ export default function Main(props) {
         <InputTexto placeholder={'Insira o termo de busca'} size={320} />
         <ScrollView horizontal={true} style={styles.scrollView}>
           <View style={styles.squaresContainer}>
-            <Card style={styles.div} text="CARNAVAL 2023" data="10/10/2023" imageSource={require('../../assets/img/ImagemSquare1.png')} onPress={goToAcoesPesquisa}/>
+            <Card style={styles.div} text="CARNAVAL " data="10/10/2023" imageSource={require('../../assets/img/ImagemSquare1.png')} onPress={goToAcoesPesquisa}/>
             <Card style={styles.div} text="UBUNTU 2022" data="05/06/2022" imageSource={require('../../assets/img/imagemSquare2.png')} onPress={goToAcoesPesquisa}/>
             <Card style={styles.div} text="MENINAS CPU" data="01/04/2022" imageSource={require('../../assets/img/imagemSquare3.png')} onPress={goToAcoesPesquisa}/>
           </View>

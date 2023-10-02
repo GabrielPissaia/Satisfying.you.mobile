@@ -24,9 +24,9 @@ const InputTexto = ({ title, placeholder, size, secure, error, onChangeText, bor
             fontFamily: 'AveriaLibre-Regular',
             marginBottom: 15,
         },
+        
 
     });
-
 
     return (
         <View>

@@ -7,7 +7,7 @@ export default function ModalApagar({isOpen, setModalOpen}){
     
     const navigation = useNavigation();
     const goToPaginaPrincipal = () => {
-        navigation.navigate('PaginaPrincipal')
+        navigation.navigate('Drawer')
       }
 
     if (isOpen) {

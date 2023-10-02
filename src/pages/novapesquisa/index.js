@@ -12,7 +12,7 @@ export default function NovaPesquisa(props) {
   const [emailError, setEmailError] = useState('')
 
   const goToPaginaPrincipal = () => {
-    props.navigation.navigate('PaginaPrincipal')
+    props.navigation.navigate('Drawer')
   }
 
   const handleEmailChange = (text) => {
