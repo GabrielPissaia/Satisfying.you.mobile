@@ -19,7 +19,7 @@ export default function Login(props) {
   }
 
   const goToPaginaPrincipal = () => {
-    props.navigation.navigate('PaginaPrincipal')
+    props.navigation.navigate('Drawer')
   }
 
   const handleEmailChange = (text) => {
