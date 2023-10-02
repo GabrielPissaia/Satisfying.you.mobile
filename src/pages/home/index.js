@@ -16,10 +16,7 @@ export default function Main(props) {
 
   return (
     <View style={styles.container}>
-        <View style={styles.nav}>
-          <TouchableOpacity onPress={() => {}}><Icon name="view-headline" size={48} color="#573FBA" /></TouchableOpacity>
-        </View>
-        <InputTexto placeholder={'Insira o termo de busca'} size={320} marginTop={100} />
+        <InputTexto placeholder={'Insira o termo de busca'} size={320} />
         <ScrollView horizontal={true} style={styles.scrollView}>
           <View style={styles.squaresContainer}>
             <Card style={styles.div} text="CARNAVAL 2023" data="10/10/2023" imageSource={require('../../assets/img/ImagemSquare1.png')} onPress={goToAcoesPesquisa}/>

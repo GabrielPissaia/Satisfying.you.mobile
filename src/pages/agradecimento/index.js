@@ -4,7 +4,7 @@ import styles from './styles';
 
 export default function Agradecimento() {
   const navigation = useNavigation();
-  setTimeout(() => { navigation.navigate('PaginaPrincipal') }, 3000);
+  setTimeout(() => { navigation.navigate('Drawer') }, 3000);
 
   return (
     <View style={styles.container}>
