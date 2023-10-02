@@ -9,13 +9,14 @@ import NovaPesquisa from './src/pages/novapesquisa/index';
 import Coleta from './src/pages/coleta/index';
 import PaginaPrincipal from './src/pages/home/index';
 import RecuperarSenha from './src/pages/recuperarsenha/index';
+import Relatorio from './src/pages/relatorio';
 
 const Stack = createStackNavigator()
 
 const App =  () => {
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='AcoesPesquisa' screenOptions={{
+            <Stack.Navigator initialRouteName='Login' screenOptions={{
                 headerShown: false,
             }}>
                 <Stack.Screen name="Login" component={Login} />
@@ -27,6 +28,7 @@ const App =  () => {
                 <Stack.Screen name="Agradecimento" component={Agradecimento} />
                 <Stack.Screen name="AcoesPesquisa" component={AcoesPesquisa} />
                 <Stack.Screen name="Coleta" component={Coleta} />
+                <Stack.Screen name="Relatorio" component={Relatorio} />
             </Stack.Navigator>
         </NavigationContainer>
     )
