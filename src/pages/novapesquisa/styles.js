@@ -30,6 +30,12 @@ const styles = StyleSheet.create({
       marginTop: 1,
       marginBottom: 10,
     },
+    imagem:{
+      backgroundColor: 'white',
+      width: 330,
+      height: 150,
+      marginLeft: 10,
+    },
   });
 
 export default styles;

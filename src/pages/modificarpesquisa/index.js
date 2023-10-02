@@ -7,6 +7,7 @@ import { Navbar } from '../../components/Navbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Modal from '../../components/ModalApagar';
 import { useState } from 'react';
+import Card from '../../components/Card';
 
 export default function NovaPesquisa(props) {
   const [openModal, setOpenModal] = useState(false)
@@ -19,9 +20,9 @@ export default function NovaPesquisa(props) {
       <Navbar title={'Modificar pesquisa'} ></Navbar>
       <View style={styles.main}>
         <View style={styles.forms}>
-          <InputTexto secure={true} title={'Nome'} size={350} borderRadius={8}/>
-          <InputTexto secure={true} title={'Data'} size={350} borderRadius={8}></InputTexto>
-          <InputTexto secure={true} placeholder={'Câmera/Galeria de imagens'} title={'Imagem'} size={350} height={70}borderRadius={8}/>
+          <InputTexto title={'Nome'} size={350} borderRadius={8}/>
+          <InputTexto title={'Data'} size={350} borderRadius={8}></InputTexto>
+          <Card style={styles.imagem} imageSource={require('../../assets/img/ImagemSquare1.png')}/>
         </View>
         
 

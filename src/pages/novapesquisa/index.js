@@ -4,6 +4,7 @@ import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
 import { Navbar } from '../../components/Navbar';
 import styles from './styles';
+import Card from '../../components/Card';
 
 export default function NovaPesquisa(props) {
 
@@ -26,7 +27,7 @@ export default function NovaPesquisa(props) {
       <View style={styles.forms}>
         <InputTexto secure={false} title={'Nome'} size={350} borderRadius={8} onChangeText={handleEmailChange} error={emailError}/>
         <InputTexto secure={false} title={'Data'} size={350} borderRadius={8} onChangeText={handleEmailChange} error={emailError}/>
-        <InputTexto secure={false} placeholder={'Câmera/Galeria de imagens'} title={'Imagem'} size={350} height={70}borderRadius={8}/>
+        <Card style={styles.imagem} imageSource={require('../../assets/img/ImagemSquare1.png')}/>
       </View>
       <View style={styles.botao}>
         <ButtonGeral title={'CADASTRAR'} color={'#37BD6D'} width={350} onPress={goToPaginaPrincipal} />

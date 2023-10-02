@@ -37,6 +37,13 @@ const styles = StyleSheet.create({
     main: {
       top: 100
     },
+
+    imagem:{
+      backgroundColor: 'white',
+      width: 330,
+      height: 150,
+      marginLeft: 10,
+    },
   });
   
 
