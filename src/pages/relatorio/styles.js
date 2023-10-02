@@ -4,22 +4,25 @@ const styles = StyleSheet.create({
 
     container: {
       backgroundColor: '#372775',
-      flex: 1,
+      height: '100%',
+      width: '100%',
       alignItems: 'center',
       justifyContent: 'center',
       gap: 20
     },
 
     aninhado: {
-        flex: 1,
         flexDirection: 'row',
+        flex: 1,
         alignSelf: 'flex-start',
         marginLeft: 50
     }, 
 
     image:{
+        top: 100,
         height: '40%',
-        width: '70%'
+        width: '80%',
+        marginBottom: 100
     },
 
     text: {

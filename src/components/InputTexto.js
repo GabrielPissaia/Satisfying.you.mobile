@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
-const InputTexto = ({ title, placeholder, size, secure, error, onChangeText, borderRadius, height}) => {
+const InputTexto = ({ title, placeholder, size, secure, error, onChangeText, borderRadius, height, marginTop}) => {
     const styles = StyleSheet.create({
         title: {
             color: 'white',
@@ -12,7 +12,7 @@ const InputTexto = ({ title, placeholder, size, secure, error, onChangeText, bor
             borderColor: 'white',
             borderWidth: 1,
             paddingHorizontal: 10,
-            marginTop: 5,
+            marginTop: marginTop ? marginTop : 5,
             color: 'black',
             borderRadius: borderRadius || 1,
             width: size,

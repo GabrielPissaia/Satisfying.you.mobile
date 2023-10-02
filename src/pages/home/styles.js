@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     },
     squaresContainer: {
       flexDirection: 'row',
-      paddingTop: 140
+      paddingTop: 140,
+      marginTop: -50
     },
     div: {
       backgroundColor: 'white',
@@ -23,7 +24,19 @@ const styles = StyleSheet.create({
     },
     content1: {
       color:'black'
-    }
+    },
+
+    nav: {
+      position: 'absolute',
+      backgroundColor: '#2B1D62',
+      width: '100%',
+      height: 90,
+      padding: 24,
+      top: 0,
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 50
+    },
   
   });
 

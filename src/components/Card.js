@@ -20,8 +20,8 @@ export const card = ({ title, color, width, style, onPress, disabled, imageSourc
       fontFamily: 'AveriaLibre-Regular',
     },
     image: {
-      width: 80, 
-      height: 80, 
+      maxWidth: 80, 
+      maxHeight: 80, 
       marginBottom: 10, 
     },
     text: {

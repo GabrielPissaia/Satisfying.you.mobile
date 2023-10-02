@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
 
     texto: {
       marginTop: 10,
-      color: '#fff'
+      color: '#fff',
+      fontFamily: 'AveriaLibre-Regular'
     },
   });
 
