@@ -1,14 +1,30 @@
-import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
 import { Logo } from '../../components/Logo';
 import styles from './styles';
+import { AuthLogin } from '../../services/authService';
+import { useAuth } from '../../context/authcontext';
 
 export default function Login(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
+  const {user, updateUser, isAuth} = useAuth();
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    var auth = isAuth();
+
+    console.log(auth);
+
+    if (auth != null) {
+      props.navigation.navigate('Drawer')
+    }
+  }, [user]);
 
   const goToCriarConta = () => {
     props.navigation.navigate('NovaConta')
@@ -18,14 +34,34 @@ export default function Login(props) {
     props.navigation.navigate('RecuperarSenha')
   }
 
-  const goToPaginaPrincipal = () => {
-    props.navigation.navigate('Drawer')
-  }
+  const login = async () => {
+    if (validateEmail(email)) {
+      await AuthLogin(email, password)
+        .then(userCredential => {
+          const userInfo = userCredential.user;
+
+          updateUser(userInfo);
+
+          dispatch(reducerSetLogin({ email: email, password: password }))
+
+          props.navigation.navigate('Drawer')
+        })
+        .catch(error => {
+          const errorCode = error.code;
+
+          if (errorCode == 'auth/invalid-login-credentials') {
+            setEmailError(regex.test(text) ? "" : "Email/senha inválidos")
+          }
+        });
+    } else {
+      setEmailError(regex.test(text) ? "" : "Email/senha inválidos")
+    }
+  };
 
   const handleEmailChange = (text) => {
     setEmail(text);
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-    setEmailError(regex.test(text) ? "" : "Email inválido")
+    setEmailError(regex.test(text) ? "" : "Email/senha inválidos")
   }
 
   const handlePasswordChange = (text) => {
@@ -38,7 +74,7 @@ export default function Login(props) {
       <InputTexto placeholder={'Digite seu email'} title={'E-mail'} size={300} onChangeText={handleEmailChange} error={emailError}/>
       <InputTexto secure={true} placeholder={'Digite sua senha'} title={'Senha'} onChangeText={handlePasswordChange} size={300}/>
 
-      <ButtonGeral title={'Entrar'} color={'#37BD6D'} width={300} disabled={Boolean(emailError) || email == '' || password == ''} onPress={goToPaginaPrincipal}/>
+      <ButtonGeral title={'Entrar'} color={'#37BD6D'} width={300} disabled={Boolean(emailError) || email == '' || password == ''} onPress={login}/>
   
       <View style={styles.bottomContainer}>
         <ButtonGeral title={'Criar minha conta'} color={'#419ED7'} width={300} onPress={goToCriarConta}/>
