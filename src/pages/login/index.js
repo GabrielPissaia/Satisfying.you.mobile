@@ -6,18 +6,19 @@ import InputTexto from '../../components/InputTexto';
 import { Logo } from '../../components/Logo';
 import styles from './styles';
 import { AuthLogin } from '../../services/authService';
+import { reducerSetLogin } from '../../redux/loginSlice'; 
 import { useAuth } from '../../context/authcontext';
 
 export default function Login(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
-  const {user, updateUser, isAuth} = useAuth();
+  const {user, updateUser, isAuthenticated} = useAuth();
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    var auth = isAuth();
+    var auth = isAuthenticated();
 
     console.log(auth);
 
@@ -35,8 +36,7 @@ export default function Login(props) {
   }
 
   const login = async () => {
-    if (validateEmail(email)) {
-      await AuthLogin(email, password)
+    await AuthLogin(email, password)
         .then(userCredential => {
           const userInfo = userCredential.user;
 
@@ -53,9 +53,6 @@ export default function Login(props) {
             setEmailError(regex.test(text) ? "" : "Email/senha inválidos")
           }
         });
-    } else {
-      setEmailError(regex.test(text) ? "" : "Email/senha inválidos")
-    }
   };
 
   const handleEmailChange = (text) => {

@@ -1,22 +1,28 @@
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import { Divider } from 'react-native-paper';
-import { UseSelector } from 'react-redux/es/hooks/useSelector';
+import { useSelector } from 'react-redux';
+import { AuthSignOut } from '../services/authService';
 
 
 const Drawer = (props) => {
-  const email = UseSelector((state) => state.login.email)
+  const email = useSelector((state) => state.login.email)
+
+  const logOut = () => {
+    AuthSignOut()
+    props.navigation.popToTop()
+  }
 
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItem    
          labelStyle={{color: 'white' }}
-         label={email}/>
+         label={`${email}`}/>
       <Divider />
       <DrawerItemList
        {...props} />
       <DrawerItem
       labelStyle={{color: 'white' }}
-      label="Sair" onPress={() => { props.navigation.popToTop() }} 
+      label="Sair" onPress={() => { logOut() }} 
      />
     </DrawerContentScrollView>
   );
