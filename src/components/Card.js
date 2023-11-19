@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
+
 export const card = ({ title, color, width, style, onPress, imageSource, text, data }) => {
   const divStyle = {
     backgroundColor: color || 'green',
