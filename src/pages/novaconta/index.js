@@ -4,6 +4,7 @@ import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
 import { Navbar } from '../../components/Navbar';
 import styles from './styles';
+import { AuthRegister } from '../../services/authService';
 
 export default function NovaConta(props) {
   const [email, setEmail] = useState('')
@@ -29,8 +30,14 @@ export default function NovaConta(props) {
     setPasswordError(password !== text ? "O campo repetir senha difere da senha" : "")
   }
 
-  const goToLogin = () => {
-    props.navigation.navigate('Login')
+  const goToLogin = async () => {
+    await AuthRegister(email, password)
+        .then(u => {
+          const user = u.user;
+          props.navigation.navigate('Login')
+
+          console.log(user);
+        })
   }
 
   return (
