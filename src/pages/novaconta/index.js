@@ -31,14 +31,16 @@ export default function NovaConta(props) {
   }
 
   const goToLogin = async () => {
-    await AuthRegister(email, password)
-        .then(u => {
-          const user = u.user;
-          props.navigation.navigate('Login')
-
-          console.log(user);
-        })
-  }
+    try {
+      console.log("Estou dentro");
+      const user = await AuthRegister(email, password);
+      props.navigation.navigate('Login');
+      console.log(user);
+    } catch (error) {
+      console.error("Erro durante o cadastro:", error.message);
+      // Trate o erro conforme necessário, por exemplo, mostre uma mensagem de erro ao usuário.
+    }
+  };
 
   return (
     <View style={styles.container}>
