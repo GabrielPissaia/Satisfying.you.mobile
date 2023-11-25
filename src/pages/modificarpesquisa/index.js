@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
+import { launchCamera } from 'react-native-image-picker';
 import styles from './styles';
 import { Navbar } from '../../components/Navbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -21,6 +22,19 @@ export default function ModificarPesquisa(props) {
   const [srcImg, setSrcImg] = useState('')
   const goToPaginaPrincipal = () => {
     props.navigation.navigate('PaginaPrincipal')
+  }
+
+  const tirarFoto = () => {
+    launchCamera({mediaType: 'photo', cameraType: 'back', quality: 1})
+    .then(
+      (result) => {
+        setSrcImg(result.assets[0].uri)
+        setImg(result.assets[0])
+      })
+    .catch(
+      (error) => {
+        console.log("Erro ao capturar imagem: " + JSON.stringfy(error))
+    })
   }
 
   const handleNameChange = (text) => {
@@ -54,9 +68,9 @@ export default function ModificarPesquisa(props) {
           <InputTexto title={'Nome'} size={350} borderRadius={8} onChangeText={handleNameChange}/>
           <InputTexto title={'Data'} size={350} borderRadius={8} onChangeText={handleDataChange}/>
           <Text style={styles.texto}>Imagem</Text> 
-          <TouchableOpacity>
-          <Image source={srcImg ? { uri: srcImg } : null} style={styles.imagem} />
-         </TouchableOpacity>
+          <TouchableOpacity onPress={tirarFoto}>
+            <Image source={srcImg ? { uri: srcImg } : null} style={styles.imagem} />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.botao}>

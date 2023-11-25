@@ -5,10 +5,8 @@ import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
 import { Navbar } from '../../components/Navbar';
 import styles from './styles';
-import Card from '../../components/Card';
 import { createSurvey } from '../../services/firestoreService';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { saveImage } from '../../services/storageService';
 
 export default function NovaPesquisa(props) {
 
