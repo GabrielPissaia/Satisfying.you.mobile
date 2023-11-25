@@ -32,13 +32,11 @@ export default function NovaConta(props) {
 
   const goToLogin = async () => {
     try {
-      console.log("Estou dentro");
       const user = await AuthRegister(email, password);
       props.navigation.navigate('Login');
       console.log(user);
     } catch (error) {
       console.error("Erro durante o cadastro:", error.message);
-      // Trate o erro conforme necessário, por exemplo, mostre uma mensagem de erro ao usuário.
     }
   };
 

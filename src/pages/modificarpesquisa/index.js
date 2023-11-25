@@ -8,29 +8,57 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Modal from '../../components/ModalApagar';
 import { useState } from 'react';
 import Card from '../../components/Card';
+import { atualizarSurvey, getSurveyById } from '../../services/firestoreService';
+import { useRoute } from '@react-navigation/native';
 
-export default function NovaPesquisa(props) {
+export default function ModificarPesquisa(props) {
+  const route = useRoute()
+  const id = route.params.id
+  const [nome, setNome] = useState('')
+  const [data, setData] = useState('')
+  const [img, setImg] = useState('')
   const [openModal, setOpenModal] = useState(false)
   const goToPaginaPrincipal = () => {
     props.navigation.navigate('PaginaPrincipal')
   }
+
+  const handleNameChange = (text) => {
+    setNome(text);
+  }
+
+  const handleDataChange = (text) => {
+    setData(text);
+  }
+
+  const handleImgChange = (text) => {
+    setImg(text);
+  }
+
+  const updateSurvey = async () => {
+    try {
+      const dados = { nome, data, img }
+      const survey = await atualizarSurvey(id, dados);
+      console.log(survey)
+      props.navigation.navigate('Drawer');
+    } catch (error) {
+      console.error("Erro durante a criacao de pesquisa:", error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <Navbar title={'Modificar pesquisa'} ></Navbar>
       <View style={styles.main}>
         <View style={styles.forms}>
-          <InputTexto title={'Nome'} size={350} borderRadius={8}/>
-          <InputTexto title={'Data'} size={350} borderRadius={8}></InputTexto>
+          <InputTexto title={'Nome'} size={350} borderRadius={8} onChangeText={handleNameChange}/>
+          <InputTexto title={'Data'} size={350} borderRadius={8} onChangeText={handleDataChange}/>
+          <InputTexto title={'Imagem'} size={350} borderRadius={8} onChangeText={handleImgChange}/>
           <Card style={styles.imagem} imageSource={require('../../assets/img/ImagemSquare1.png')}/>
         </View>
-        
-
-        
       </View>
       <View style={styles.botao}>
           <View style={styles.botao2}>
-              <ButtonGeral title={'SALVAR'} color={'#37BD6D'} width={285} height={45} onPress={goToPaginaPrincipal}/>
+              <ButtonGeral title={'SALVAR'} color={'#37BD6D'} width={285} height={45} onPress={updateSurvey}/>
               <TouchableOpacity style={styles.botao3} onPress={setOpenModal} >
               <View >
                 <Icon name="delete" size={50} color="#FFFFFF" /> 
@@ -39,7 +67,7 @@ export default function NovaPesquisa(props) {
             </TouchableOpacity>
             </View>
           </View>
-        <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}/>
+        <Modal surveyid={id} isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}/>
     </View>
     
   );

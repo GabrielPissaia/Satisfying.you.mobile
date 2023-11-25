@@ -1,13 +1,21 @@
 import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Navbar } from '../../components/Navbar';
 import styles from './styles';
+import { useCallback } from 'react';
 
 export default function AcoesPesquisa(props) {
+  const { navigate } = useNavigation();
+  const route = useRoute()
+  const id = route.params.id
 
-  const goToModificarPesquisa = () => {
-    props.navigation.navigate('ModificarPesquisa')
-  }
+  const goToModificarPesquisa = useCallback(
+    () => {
+      navigate('ModificarPesquisa', { id });
+    },
+    [navigate],
+  );
   const goToColeta = () => {
     props.navigation.navigate('Coleta')
   }

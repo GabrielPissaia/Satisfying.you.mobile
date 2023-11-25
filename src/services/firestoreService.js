@@ -9,34 +9,32 @@ import {
 
 import { firestore } from '../shared/firebase/config';
 
-const getQuerySurvey = (userId)=> {
+const getQuerySurvey = ()=> {
   return query(collection(firestore, 'pesquisas'));
 };
 
-const addSurvey = async (data, userId) => {
-  const votes = {
-    terrible: 0,
-    bad: 0,
-    neutral: 0,
-    good: 0,
-    great: 0,
+const createSurvey = async (data) => {
+  data = {...data,
+    terrivel: 0,
+    ruim: 0,
+    neutro: 0,
+    bom: 0,
+    otimo: 0
   };
-
-  data = {...data, ...votes};
 
   return await addDoc(collection(firestore, 'pesquisas'), data);
 };
 
-const updateSurvey = async (docId, userId, newData) => {
+const atualizarSurvey = async (docId, newData) => {
   const document = doc(firestore, 'pesquisas', docId);
 
   return await updateDoc(document, newData);
 };
 
-const deleteSurvey = async (docId, userId) => {
+const deletarSurvey = async (docId) => {
   const document = doc(firestore, 'pesquisas', docId);
 
   return await deleteDoc(document);
 };
 
-export {addSurvey, updateSurvey, deleteSurvey, getQuerySurvey};
+export {createSurvey, atualizarSurvey, deletarSurvey, getQuerySurvey };
