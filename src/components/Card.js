@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 
-export const card = ({ title, color, width, style, onPress, imageSource, text, data }) => {
+export const card = ({ title, color, width, style, onPress, text, data }) => {
   const divStyle = {
     backgroundColor: color || 'green',
   };
@@ -40,7 +40,6 @@ export const card = ({ title, color, width, style, onPress, imageSource, text, d
       style={[styles.div, divStyle, style]}
       onPress={onPress}
     >
-      <Image source={imageSource} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
       <Text style={styles.buttonText}>{title}</Text>
       <Text>{data}</Text>

@@ -28,9 +28,12 @@ export default function AcoesPesquisa(props) {
     },
     [navigate],
   );
-  const goToRelatorio = () => {
-    props.navigation.navigate('Relatorio')
-  }
+  const goToRelatorio = useCallback(
+    () => {
+      navigate('Relatorio', { id, nome, terrivel, ruim, neutro, bom, otimo });
+    },
+    [navigate],
+  );
 
   return (
     <View style={styles.container}>

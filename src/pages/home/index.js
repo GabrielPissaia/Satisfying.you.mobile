@@ -13,7 +13,8 @@ export default function PaginaPrincipal(props) {
   const { navigate } = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
 
-  const [surveys, updateSurveys] = useState([]);
+  const [surveys, setSurveys] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     onSnapshot(getQuerySurvey(), querySnapshot => {
@@ -26,28 +27,21 @@ export default function PaginaPrincipal(props) {
         });
       });
 
-      console.log(s[0].nome)
-
-      updateSurveys(s ?? []);
+      setSurveys(s ?? []);
+      setFiltered(s ?? [])
     });
   }, []);
 
-  const filterData = useCallback((query, data) => {
-    if (!query) {
-      return data;
+  const pesquisa = (text) => {
+    setSearchQuery(text);
+    if(searchQuery) {
+      setFiltered(surveys.filter(survey =>
+        survey.nome.toLowerCase().includes(text),
+      ))
     } else {
-      let filtered = data.filter(survey =>
-        survey.name.toLowerCase().includes(query),
-      );
-
-      return filtered;
+      setFiltered(surveys)
     }
-  },  []);
-
-  const dataFiltered = useMemo(
-    () => filterData(searchQuery, surveys),
-    [searchQuery, surveys],
-  );
+  }
 
   const goToNovaPesquisa = useCallback(() => {
     props.navigation.navigate('NovaPesquisa')
@@ -62,11 +56,11 @@ export default function PaginaPrincipal(props) {
 
   return (
     <View style={styles.container}>
-        <InputTexto placeholder={'Insira o termo de busca'} size={320} />
+        <InputTexto placeholder={'Insira o termo de busca'} size={320} onChangeText={pesquisa} />
         <ScrollView horizontal={true} style={styles.scrollView}>
           <View style={styles.squaresContainer}>
-            {surveys && (surveys.map((survey) => 
-              <Card key={survey.id} style={styles.div} text={survey.nome} data={survey.data} imageSource={survey.image} onPress={() => goToAcoesPesquisa(survey.id, survey.nome, survey.terrivel, survey.ruim, survey.neutro, survey.bom, survey.otimo)}/>))}
+            {filtered && (filtered.map((survey) => 
+              <Card key={survey.id} style={styles.div} text={survey.nome} data={survey.data} onPress={() => goToAcoesPesquisa(survey.id, survey.nome, survey.terrivel, survey.ruim, survey.neutro, survey.bom, survey.otimo)}/>))}
           </View>
       </ScrollView>
       <ButtonGeral style={styles.botao} title={'Nova Pesquisa'} color={'#37BD6D'} width={350} onPress={goToNovaPesquisa}/>
