@@ -1,18 +1,36 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
+import { launchCamera } from 'react-native-image-picker';
 import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
 import { Navbar } from '../../components/Navbar';
 import styles from './styles';
 import Card from '../../components/Card';
 import { createSurvey } from '../../services/firestoreService';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { saveImage } from '../../services/storageService';
 
 export default function NovaPesquisa(props) {
 
   const [nome, setNome] = useState('')
   const [data, setData] = useState('')
-  const [img, setImg] = useState('')
   const [nameError, setNomeError] = useState('')
+
+  const [srcImg, setSrcImg] = useState('')
+  const [img, setImg] = useState()
+
+  const tirarFoto = () => {
+    launchCamera({mediaType: 'photo', cameraType: 'back', quality: 1})
+    .then(
+      (result) => {
+        setSrcImg(result.assets[0].uri)
+        setImg(result.assets[0])
+      })
+    .catch(
+      (error) => {
+        console.log("Erro ao capturar imagem: " + JSON.stringfy(error))
+    })
+  }
 
   const handleNameChange = (text) => {
     setNome(text);
@@ -30,7 +48,7 @@ export default function NovaPesquisa(props) {
 
   const newSurvey = async () => {
     try {
-      const dados = { nome, data, img }
+      const dados = { nome, data, img}
       const survey = await createSurvey(dados);
       console.log(survey)
       props.navigation.navigate('Drawer');
@@ -46,7 +64,9 @@ export default function NovaPesquisa(props) {
         <InputTexto secure={false} title={'Nome'} size={350} borderRadius={8} onChangeText={handleNameChange} error={nameError}/>
         <InputTexto secure={false} title={'Data'} size={350} borderRadius={8} onChangeText={handleDataChange}/>
         <InputTexto secure={false} title={'Imagem'} size={350} borderRadius={8} onChangeText={handleImgChange}/>
-        <Card style={styles.imagem} imageSource={require('../../assets/img/ImagemSquare1.png')}/>
+        <TouchableOpacity onPress={tirarFoto}>
+        <Image source={srcImg ? { uri: srcImg } : null} style={styles.imagem} />
+        </TouchableOpacity>
       </View>
       <View style={styles.botao}>
         <ButtonGeral title={'CADASTRAR'} color={'#37BD6D'} width={350} onPress={newSurvey} />

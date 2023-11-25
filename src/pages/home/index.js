@@ -13,8 +13,6 @@ export default function PaginaPrincipal(props) {
   const { navigate } = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { user } = useAuth()
-
   const [surveys, updateSurveys] = useState([]);
 
   useEffect(() => {
