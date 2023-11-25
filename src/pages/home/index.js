@@ -54,8 +54,8 @@ export default function PaginaPrincipal(props) {
   }, [])
 
   const goToAcoesPesquisa = useCallback(
-    (id) => {
-      navigate('AcoesPesquisa', { id });
+    (id, nome, terrivel, ruim, neutro, bom, otimo) => {
+      navigate('AcoesPesquisa', { id, nome, terrivel, ruim, neutro, bom, otimo });
     },
     [navigate],
   );
@@ -66,7 +66,7 @@ export default function PaginaPrincipal(props) {
         <ScrollView horizontal={true} style={styles.scrollView}>
           <View style={styles.squaresContainer}>
             {surveys && (surveys.map((survey) => 
-              <Card key={survey.id} style={styles.div} text={survey.nome} data={survey.data} imageSource={survey.image} onPress={() => goToAcoesPesquisa(survey.id)}/>))}
+              <Card key={survey.id} style={styles.div} text={survey.nome} data={survey.data} imageSource={survey.image} onPress={() => goToAcoesPesquisa(survey.id, survey.nome, survey.terrivel, survey.ruim, survey.neutro, survey.bom, survey.otimo)}/>))}
           </View>
       </ScrollView>
       <ButtonGeral style={styles.botao} title={'Nova Pesquisa'} color={'#37BD6D'} width={350} onPress={goToNovaPesquisa}/>
