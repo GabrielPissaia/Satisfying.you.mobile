@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Text } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 import ButtonGeral from '../../components/ButtonGeral';
 import InputTexto from '../../components/InputTexto';
@@ -63,7 +63,7 @@ export default function NovaPesquisa(props) {
       <View style={styles.forms}>
         <InputTexto secure={false} title={'Nome'} size={350} borderRadius={8} onChangeText={handleNameChange} error={nameError}/>
         <InputTexto secure={false} title={'Data'} size={350} borderRadius={8} onChangeText={handleDataChange}/>
-        <InputTexto secure={false} title={'Imagem'} size={350} borderRadius={8} onChangeText={handleImgChange}/>
+        <Text style={styles.texto}>Imagem</Text> 
         <TouchableOpacity onPress={tirarFoto}>
         <Image source={srcImg ? { uri: srcImg } : null} style={styles.imagem} />
         </TouchableOpacity>

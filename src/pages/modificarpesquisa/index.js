@@ -18,6 +18,7 @@ export default function ModificarPesquisa(props) {
   const [data, setData] = useState('')
   const [img, setImg] = useState('')
   const [openModal, setOpenModal] = useState(false)
+  const [srcImg, setSrcImg] = useState('')
   const goToPaginaPrincipal = () => {
     props.navigation.navigate('PaginaPrincipal')
   }
@@ -52,8 +53,10 @@ export default function ModificarPesquisa(props) {
         <View style={styles.forms}>
           <InputTexto title={'Nome'} size={350} borderRadius={8} onChangeText={handleNameChange}/>
           <InputTexto title={'Data'} size={350} borderRadius={8} onChangeText={handleDataChange}/>
-          <InputTexto title={'Imagem'} size={350} borderRadius={8} onChangeText={handleImgChange}/>
-          <Card style={styles.imagem} imageSource={require('../../assets/img/ImagemSquare1.png')}/>
+          <Text style={styles.texto}>Imagem</Text> 
+          <TouchableOpacity>
+          <Image source={srcImg ? { uri: srcImg } : null} style={styles.imagem} />
+         </TouchableOpacity>
         </View>
       </View>
       <View style={styles.botao}>

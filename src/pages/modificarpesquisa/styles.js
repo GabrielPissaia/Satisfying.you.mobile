@@ -44,6 +44,10 @@ const styles = StyleSheet.create({
       height: 150,
       marginLeft: 10,
     },
+    texto:{
+      color: 'white',
+      marginBottom: 10,
+    }
   });
   
 
