@@ -8,7 +8,6 @@ import { Navbar } from '../../components/Navbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Modal from '../../components/ModalApagar';
 import { useState } from 'react';
-import Card from '../../components/Card';
 import { atualizarSurvey, getSurveyById } from '../../services/firestoreService';
 import { useRoute } from '@react-navigation/native';
 
