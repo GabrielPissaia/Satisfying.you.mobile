@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     },
     squaresContainer: {
       flexDirection: 'row',
-      paddingTop: 140
+      paddingTop: 140,
+      marginTop: -50,
     },
     div: {
       backgroundColor: 'white',
@@ -23,8 +24,7 @@ const styles = StyleSheet.create({
     },
     content1: {
       color:'black'
-    }
-  
+    },
   });
 
   export default styles;

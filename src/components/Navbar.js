@@ -25,6 +25,7 @@ export const Navbar = ({ title, top }) => {
           },
       
           texto2: {
+            fontFamily: 'AveriaLibre-Regular',
             marginLeft: 20,
             color: '#fff',
             fontSize: 32

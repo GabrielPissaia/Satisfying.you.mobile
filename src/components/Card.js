@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
-export const card = ({ title, color, width, style, onPress, disabled, imageSource, text, data }) => {
+
+export const card = ({ title, color, width, style, onPress, text, data }) => {
   const divStyle = {
     backgroundColor: color || 'green',
   };
@@ -20,8 +21,8 @@ export const card = ({ title, color, width, style, onPress, disabled, imageSourc
       fontFamily: 'AveriaLibre-Regular',
     },
     image: {
-      width: 80, 
-      height: 80, 
+      maxWidth: 80, 
+      maxHeight: 80, 
       marginBottom: 10, 
     },
     text: {
@@ -37,10 +38,8 @@ export const card = ({ title, color, width, style, onPress, disabled, imageSourc
   return (
     <TouchableOpacity
       style={[styles.div, divStyle, style]}
-      disabled={disabled}
       onPress={onPress}
     >
-      <Image source={imageSource} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
       <Text style={styles.buttonText}>{title}</Text>
       <Text>{data}</Text>

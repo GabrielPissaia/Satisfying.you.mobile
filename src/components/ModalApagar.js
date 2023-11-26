@@ -2,13 +2,19 @@ import React from 'react';
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { deletarSurvey } from '../services/firestoreService';
 
-export default function ModalApagar({isOpen, setModalOpen}){
-    
+export default function ModalApagar({isOpen, setModalOpen, surveyid}){
     const navigation = useNavigation();
-    const goToPaginaPrincipal = () => {
-        navigation.navigate('PaginaPrincipal')
-      }
+    const survey = surveyid
+    const deleteSurvey = async () => {
+        try {
+          await deletarSurvey(survey);
+          navigation.navigate('Drawer');
+        } catch (error) {
+          console.error("Erro durante a delecao de pesquisa:", error.message);
+        }
+    };
 
     if (isOpen) {
         return (
@@ -16,7 +22,7 @@ export default function ModalApagar({isOpen, setModalOpen}){
                 <View style={modal.popup}>
                     <Text style={modal.texto}>Tem certeza que quer apagar essa pesquisa?</Text>
                     <View style={modal.botao}>
-                        <TouchableOpacity style={modal.yes} onPress={goToPaginaPrincipal}>
+                        <TouchableOpacity style={modal.yes} onPress={deleteSurvey}>
                             <Text style={modal.textoBotao}>SIM</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={modal.no} onPress={setModalOpen}>

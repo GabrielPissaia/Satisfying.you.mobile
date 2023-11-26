@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const styles = StyleSheet.create({
     forms: {
@@ -30,6 +31,16 @@ const styles = StyleSheet.create({
       marginTop: 1,
       marginBottom: 10,
     },
+    imagem:{
+      backgroundColor: 'white',
+      width: 330,
+      height: 150,
+      marginLeft: 10,
+    },
+    texto:{
+      color: 'white',
+      marginBottom: 10,
+    }
   });
 
 export default styles;
